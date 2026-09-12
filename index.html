@@ -5,8 +5,121 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lily's English Escape Room</title>
 <style>
-:root{--ink:#17324d;--navy:#16395f;--sky:#eaf8ff;--card:#ffffffee;--accent:#ec6b5e;--gold:#f6bf4f}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(160deg,#dff6ff,#fff6dc);min-height:100vh}.wrap{width:min(980px,calc(100% - 28px));margin:auto;padding:48px 0}.hero{text-align:center;margin-bottom:30px}.eyebrow{font-weight:900;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}.hero h1{font-size:clamp(2.4rem,7vw,4.8rem);line-height:1;margin:.25em 0;color:var(--navy)}.hero p{max-width:700px;margin:14px auto;line-height:1.8}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.card{background:var(--card);border:1px solid #d7e7ef;border-radius:24px;padding:24px;box-shadow:0 14px 40px #16395f18}.tag{display:inline-block;background:var(--sky);padding:6px 10px;border-radius:999px;font-size:.82rem;font-weight:800}.card h2{margin:.7em 0 .35em;color:var(--navy)}.card p{line-height:1.7;min-height:4.8em}.btn{display:inline-block;text-decoration:none;background:var(--navy);color:#fff;padding:12px 18px;border-radius:999px;font-weight:900}.btn.alt{background:#5d6b78}.footer{text-align:center;margin-top:30px;font-size:.9rem;opacity:.7}@media(max-width:600px){.wrap{padding:28px 0}.card p{min-height:0}}
+:root{
+  --ink:#17324d;
+  --navy:#16395f;
+  --sky:#eaf8ff;
+  --card:#ffffffee;
+  --accent:#ec6b5e;
+  --gold:#f6bf4f;
+  --muted:#6f7f8d;
+  --line:#d7e7ef;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;
+  color:var(--ink);
+  background:linear-gradient(160deg,#dff6ff,#fff6dc);
+  min-height:100vh;
+}
+.wrap{
+  width:min(1180px,calc(100% - 28px));
+  margin:auto;
+  padding:48px 0;
+}
+.hero{
+  text-align:center;
+  margin-bottom:30px;
+}
+.eyebrow{
+  font-weight:900;
+  letter-spacing:.16em;
+  color:var(--accent);
+  text-transform:uppercase;
+}
+.hero h1{
+  font-size:clamp(2.4rem,7vw,4.8rem);
+  line-height:1;
+  margin:.25em 0;
+  color:var(--navy);
+}
+.hero p{
+  max-width:760px;
+  margin:14px auto;
+  line-height:1.8;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:18px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:24px;
+  box-shadow:0 14px 40px #16395f18;
+  display:flex;
+  flex-direction:column;
+}
+.card.coming{
+  background:#ffffffb8;
+}
+.tag{
+  display:inline-block;
+  align-self:flex-start;
+  background:var(--sky);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:.82rem;
+  font-weight:800;
+}
+.tag.soon{
+  background:#f4f4f4;
+  color:#66727d;
+}
+.card h2{
+  margin:.7em 0 .35em;
+  color:var(--navy);
+}
+.card p{
+  line-height:1.7;
+  min-height:4.8em;
+  flex:1;
+}
+.btn{
+  display:inline-block;
+  align-self:flex-start;
+  text-decoration:none;
+  background:var(--navy);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+}
+.btn:hover{
+  filter:brightness(1.08);
+}
+.btn.alt{
+  background:#5d6b78;
+}
+.btn.disabled{
+  background:#c7d0d7;
+  color:#65727d;
+  cursor:not-allowed;
+  pointer-events:none;
+}
+.footer{
+  text-align:center;
+  margin-top:30px;
+  font-size:.9rem;
+  opacity:.7;
+}
+@media(max-width:600px){
+  .wrap{padding:28px 0}
+  .card p{min-height:0}
+}
 </style>
 </head>
 <body>
@@ -16,25 +129,60 @@
     <h1>English Escape Room</h1>
     <p>選擇任務開始挑戰。每個關卡結合英文閱讀、字彙、文法、推論與證據判讀，完成後可取得任務證書。</p>
   </section>
+
   <section class="grid">
+
+    <article class="card">
+      <span class="tag">V3 · Unit 1</span>
+      <h2>The Lost Postcard from Australia</h2>
+      <p>Weather、Australian English、授與動詞、postcard reading 與 climate chart 任務。</p>
+      <a class="btn" href="unit1/">開始 Unit 1 →</a>
+    </article>
+
     <article class="card">
       <span class="tag">V3 · Unit 2</span>
       <h2>The Missing Game Code</h2>
       <p>Beginner / Advanced、5 / 10 / 15 題、Guided / Challenge，以及 Answer + Evidence 閱讀任務。</p>
       <a class="btn" href="unit2/">開始 Unit 2 →</a>
     </article>
+
+    <article class="card coming">
+      <span class="tag soon">Unit 3 · Coming Soon</span>
+      <h2>Unit 3 Escape Room</h2>
+      <p>Unit 3 密室逃脫將放在這裡。完成後只要建立 <strong>unit3/index.html</strong> 即可啟用。</p>
+      <span class="btn disabled" aria-disabled="true">尚未上架</span>
+    </article>
+
+    <article class="card coming">
+      <span class="tag soon">Unit 4 · Coming Soon</span>
+      <h2>Unit 4 Escape Room</h2>
+      <p>Unit 4 密室逃脫將放在這裡。完成後只要建立 <strong>unit4/index.html</strong> 即可啟用。</p>
+      <span class="btn disabled" aria-disabled="true">尚未上架</span>
+    </article>
+
+    <article class="card coming">
+      <span class="tag soon">Unit 5 · Coming Soon</span>
+      <h2>Unit 5 Escape Room</h2>
+      <p>Unit 5 密室逃脫將放在這裡。完成後只要建立 <strong>unit5/index.html</strong> 即可啟用。</p>
+      <span class="btn disabled" aria-disabled="true">尚未上架</span>
+    </article>
+
+    <article class="card coming">
+      <span class="tag soon">Unit 6 · Coming Soon</span>
+      <h2>Unit 6 Escape Room</h2>
+      <p>Unit 6 密室逃脫將放在這裡。完成後只要建立 <strong>unit6/index.html</strong> 即可啟用。</p>
+      <span class="btn disabled" aria-disabled="true">尚未上架</span>
+    </article>
+
     <article class="card">
       <span class="tag">Archive</span>
       <h2>Australia Postcard Escape Room</h2>
       <p>保留原始版本，方便回顧或比較不同密室逃脫設計。</p>
       <a class="btn alt" href="archive/old-version/">開啟舊版 →</a>
     </article>
-    <article class="card">
-      <span class="tag">Coming Next</span>
-      <h2>Future Units</h2>
-      <p>之後的 Unit 3、Unit 4、Unit 5 會直接加入這個遊戲中心，不需要另外記網址。</p>
-    </article>
+
   </section>
+
   <div class="footer">Lily's English Escape Room Hub</div>
 </main>
 </body>

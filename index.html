@@ -3,125 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Australia Postcard Escape Room</title>
+<title>Lily's English Escape Room</title>
 <style>
-:root{--navy:#17385f;--blue:#087fae;--sky:#dff6ff;--sand:#fff3d5;--coral:#ef6c57;--gold:#f4b942;--green:#208a72;--red:#c84343;--ink:#183047;--card:#ffffffee}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(160deg,#75d4ed 0%,#dff7ff 42%,#fff1c9 100%);overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:radial-gradient(#fff 2px,transparent 2px);background-size:32px 32px}
-button,input{font:inherit}.wrap{width:min(920px,calc(100% - 28px));margin:auto;position:relative;z-index:2}.screen{min-height:100vh;display:flex;align-items:center;padding:36px 0}.hidden{display:none!important}.card{background:var(--card);border:2px solid #fff;border-radius:28px;box-shadow:0 22px 60px #16446b30;padding:clamp(22px,5vw,46px);width:100%;backdrop-filter:blur(10px)}
-.eyebrow{font-weight:900;letter-spacing:.18em;color:var(--coral);text-transform:uppercase}.hero{text-align:center}.hero h1{font-size:clamp(2.4rem,7vw,5rem);line-height:.95;margin:.25em 0;color:var(--navy)}.hero h1 span{color:var(--coral)}.lead{font-size:1.05rem;max-width:660px;margin:14px auto 28px;line-height:1.8}.roo{font-size:5rem;filter:drop-shadow(0 10px 10px #0002);animation:bob 3s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-8px) rotate(3deg)}}
-.selectors{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left;margin:24px 0}.panel{border:1px solid #93c7d9;border-radius:20px;padding:18px;background:#f8fdff}.panel h3{margin:0 0 12px}.choice{width:100%;border:2px solid transparent;background:#e9f7fc;color:var(--ink);border-radius:13px;padding:12px;margin:5px 0;text-align:left;cursor:pointer}.choice:hover,.choice.on{border-color:var(--blue);background:#d3f2fc}.choice strong{display:block}.choice small{opacity:.72}.primary,.secondary{border:0;border-radius:999px;padding:13px 26px;font-weight:900;cursor:pointer}.primary{background:linear-gradient(135deg,var(--coral),#db4d47);color:#fff;box-shadow:0 8px 20px #c8434340}.primary:disabled{opacity:.4;cursor:not-allowed}.secondary{background:#e9f7fc;color:var(--navy)}
-.top{display:flex;gap:14px;justify-content:space-between;align-items:center;margin-bottom:18px}.tag{background:var(--navy);color:#fff;border-radius:999px;padding:7px 13px;font-weight:800}.progress{height:12px;border-radius:999px;background:#cce5ec;overflow:hidden;flex:1}.bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--coral));transition:.35s}.frags{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin:15px 0}.frag{width:42px;height:42px;border-radius:11px;background:#d6e9ef;display:grid;place-items:center;font-weight:900;color:#6c8791}.frag.lit{background:var(--gold);color:var(--navy);animation:pop .45s}@keyframes pop{50%{transform:scale(1.25) rotate(5deg)}}
-.scene{background:var(--sand);border-radius:16px;padding:13px 16px;margin:16px 0;line-height:1.6}.q{font-size:clamp(1.15rem,3vw,1.5rem);font-weight:900;line-height:1.55;margin:20px 0}.answers{display:grid;grid-template-columns:1fr 1fr;gap:11px}.answer{border:2px solid #b9d6df;background:#fff;border-radius:15px;padding:14px;text-align:left;line-height:1.5;cursor:pointer;color:var(--ink)}.answer:hover:not(:disabled){border-color:var(--blue);transform:translateY(-2px)}.answer.correct{background:#e4f7ee;border-color:var(--green)}.answer.wrong{background:#fff0ef;border-color:var(--red)}.badge{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#dff2f8;font-weight:900;margin-right:7px}.feedback{margin-top:16px;border-radius:16px;padding:16px;line-height:1.7}.feedback.ok{background:#e4f7ee;border-left:6px solid var(--green)}.feedback.no{background:#fff0ef;border-left:6px solid var(--red)}.feedback strong{display:block;font-size:1.05rem}.actions{text-align:right;margin-top:14px}
-.namebox{text-align:center}.namebox input{width:min(420px,100%);padding:14px 18px;border:2px solid #a9ccd8;border-radius:14px;margin:16px 0;text-align:center}.certificate{background:#fffdf4;border:9px double var(--gold);border-radius:20px;padding:28px;text-align:center;margin:18px 0;box-shadow:inset 0 0 0 4px #fff}.certificate h2{font-family:Georgia,serif;font-size:2rem;color:var(--navy)}.student{font-size:2.2rem;font-weight:900;color:var(--coral);border-bottom:2px solid #e5c26a;display:inline-block;min-width:220px;padding:8px}.phrase{font-size:1.5rem;font-weight:900;letter-spacing:.12em;color:var(--green);margin:14px}.score{font-weight:800}.note{font-size:.86rem;opacity:.72}.sound{position:fixed;top:14px;right:14px;z-index:8;border:0;border-radius:50%;width:46px;height:46px;background:#ffffffdd;cursor:pointer;box-shadow:0 5px 15px #0002}
-@media(max-width:650px){.selectors,.answers{grid-template-columns:1fr}.card{border-radius:22px}.top{flex-wrap:wrap}.progress{order:3;flex-basis:100%}.frag{width:34px;height:34px}.screen{padding:18px 0}}
-@media print{body{background:#fff}.sound,.no-print{display:none!important}.screen{min-height:auto}.card{box-shadow:none;border:0}.certificate{margin:0}}
+:root{--ink:#17324d;--navy:#16395f;--sky:#eaf8ff;--card:#ffffffee;--accent:#ec6b5e;--gold:#f6bf4f}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;color:var(--ink);background:linear-gradient(160deg,#dff6ff,#fff6dc);min-height:100vh}.wrap{width:min(980px,calc(100% - 28px));margin:auto;padding:48px 0}.hero{text-align:center;margin-bottom:30px}.eyebrow{font-weight:900;letter-spacing:.16em;color:var(--accent);text-transform:uppercase}.hero h1{font-size:clamp(2.4rem,7vw,4.8rem);line-height:1;margin:.25em 0;color:var(--navy)}.hero p{max-width:700px;margin:14px auto;line-height:1.8}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.card{background:var(--card);border:1px solid #d7e7ef;border-radius:24px;padding:24px;box-shadow:0 14px 40px #16395f18}.tag{display:inline-block;background:var(--sky);padding:6px 10px;border-radius:999px;font-size:.82rem;font-weight:800}.card h2{margin:.7em 0 .35em;color:var(--navy)}.card p{line-height:1.7;min-height:4.8em}.btn{display:inline-block;text-decoration:none;background:var(--navy);color:#fff;padding:12px 18px;border-radius:999px;font-weight:900}.btn.alt{background:#5d6b78}.footer{text-align:center;margin-top:30px;font-size:.9rem;opacity:.7}@media(max-width:600px){.wrap{padding:28px 0}.card p{min-height:0}}
 </style>
 </head>
 <body>
-<button class="sound" id="sound" aria-label="切換音效">🔊</button>
 <main class="wrap">
-<section class="screen" id="home"><div class="card hero">
-  <div class="roo">🦘</div><div class="eyebrow">Grade 8 · English Mission</div>
-  <h1>Australia <span>Postcard</span><br>Escape Room</h1>
-  <p class="lead">跟著 Jamie 的澳洲明信片，破解天氣、旅行、授與動詞與明信片格式！完成任務，收集密碼碎片並取得專屬證書。</p>
-  <div class="selectors">
-    <div class="panel"><h3>① 選擇難度</h3>
-      <button class="choice" data-kind="level" data-value="beginner"><strong>🌱 Beginner｜A1–A2</strong><small>字詞、對話與基本文法</small></button>
-      <button class="choice" data-kind="level" data-value="expert"><strong>🔥 Expert｜A2–B1</strong><small>推論、改寫與篇章理解</small></button>
-    </div>
-    <div class="panel"><h3>② 選擇關卡</h3>
-      <button class="choice" data-kind="count" data-value="5"><strong>🚪 5 Missions</strong><small>約3分鐘，輕鬆體驗</small></button>
-      <button class="choice" data-kind="count" data-value="10"><strong>🏯 10 Missions</strong><small>約5分鐘，完整挑戰</small></button>
-    </div>
-  </div>
-  <button class="primary" id="start" disabled>START THE MISSION →</button>
-</div></section>
-
-<section class="screen hidden" id="game"><div class="card">
-  <div class="top"><span class="tag" id="mission">Mission 1</span><div class="progress"><div class="bar" id="bar"></div></div><span id="counter"></span></div>
-  <div class="frags" id="frags"></div><div class="scene" id="scene"></div>
-  <div class="q" id="question"></div><div class="answers" id="answers"></div>
-  <div class="feedback hidden" id="feedback"><strong id="fbTitle"></strong><span id="fbText"></span></div>
-  <div class="actions"><button class="primary hidden" id="next">NEXT MISSION →</button></div>
-</div></section>
-
-<section class="screen hidden" id="name"><div class="card namebox">
-  <div class="roo">🎒</div><div class="eyebrow">Mission Complete</div><h2>請輸入挑戰者姓名</h2>
-  <p>Enter your name to receive your certificate.</p><input id="student" maxlength="30" placeholder="學生姓名 / Student name">
-  <div><button class="primary" id="makeCert">取得完成證書</button></div>
-</div></section>
-
-<section class="screen hidden" id="victory"><div class="card">
-  <div class="certificate"><div class="eyebrow">Australia Postcard Escape Room</div><h2>Certificate of Achievement</h2>
-    <p>This certificate is proudly presented to</p><div class="student" id="certName"></div>
-    <p>for successfully completing the English escape-room challenge.</p>
-    <div class="phrase" id="certPhrase"></div><div class="score" id="certScore"></div><p id="certDate"></p>
-    <p>🏅 Teacher Approved · 老師認證</p></div>
-  <div class="actions no-print"><button class="secondary" onclick="window.print()">🖨️ 列印／另存PDF</button> <button class="primary" id="again">🔄 再玩一次</button></div>
-</div></section>
+  <section class="hero">
+    <div class="eyebrow">Lily's English Learning Lab</div>
+    <h1>English Escape Room</h1>
+    <p>選擇任務開始挑戰。每個關卡結合英文閱讀、字彙、文法、推論與證據判讀，完成後可取得任務證書。</p>
+  </section>
+  <section class="grid">
+    <article class="card">
+      <span class="tag">V3 · Unit 2</span>
+      <h2>The Missing Game Code</h2>
+      <p>Beginner / Advanced、5 / 10 / 15 題、Guided / Challenge，以及 Answer + Evidence 閱讀任務。</p>
+      <a class="btn" href="unit2/">開始 Unit 2 →</a>
+    </article>
+    <article class="card">
+      <span class="tag">Archive</span>
+      <h2>Australia Postcard Escape Room</h2>
+      <p>保留原始版本，方便回顧或比較不同密室逃脫設計。</p>
+      <a class="btn alt" href="archive/old-version/">開啟舊版 →</a>
+    </article>
+    <article class="card">
+      <span class="tag">Coming Next</span>
+      <h2>Future Units</h2>
+      <p>之後的 Unit 3、Unit 4、Unit 5 會直接加入這個遊戲中心，不需要另外記網址。</p>
+    </article>
+  </section>
+  <div class="footer">Lily's English Escape Room Hub</div>
 </main>
-<script>
-const QDB={
-beginner:[
-{q:"Where did Zac visit his aunt?",o:["He visited his aunt in India.","He visited his aunt in Taiwan.","He visited his aunt in Australia.","He visited his aunt in America."],e:"Zac says, “I visited my aunt in India.”｜Zac說他到印度拜訪阿姨。"},
-{q:"How was the weather in India?",o:["It was hot, and it rained a lot.","It was cold, and it snowed a lot.","It was cool, and it was very windy.","It was warm, and it was always sunny."],e:"Zac says it was hot and it rained a lot.｜印度天氣炎熱，而且常常下雨。"},
-{q:"Where did Jamie take a trip?",o:["Jamie took a trip to Australia.","Jamie took a trip to India.","Jamie took a trip to Japan.","Jamie took a trip to Canada."],e:"Jamie talks about a trip to Australia.｜Jamie談的是澳洲之旅。"},
-{q:"How was Jamie’s trip to Australia?",o:["It was fun, and Jamie had a good time.","It was tiring, and Jamie wanted to go home.","It was boring, and Jamie did not enjoy it.","It was dangerous, and Jamie felt afraid."],e:"Jamie says, “It was fun. I had a good time.”｜Jamie玩得很開心。"},
-{q:"What was the weather like in Australia?",o:["It was cold, and it snowed for a few days.","It was hot, and it rained for a few days.","It was warm, and it was sunny every day.","It was cool, and it was windy all week."],e:"Jamie says it was cold and it snowed for a few days.｜澳洲很冷，而且下了幾天雪。"},
-{q:"What did Jamie send Zac?",o:["Jamie sent Zac a postcard from Australia.","Jamie sent Zac a jacket from Australia.","Jamie sent Zac a snowboard from Australia.","Jamie sent Zac a birthday card from Australia."],e:"Jamie says, “I sent you a postcard from Australia.”｜Jamie寄了一張澳洲明信片給Zac。"},
-{q:"Who lent Jamie a snowboard?",o:["Jamie’s aunt lent Jamie a snowboard.","Jamie’s uncle lent Jamie a snowboard.","Jamie’s mother lent Jamie a snowboard.","Jamie’s friend lent Jamie a snowboard."],e:"Jamie borrowed the snowboard from an aunt.｜滑雪板是阿姨借給Jamie的。"},
-{q:"What else did Jamie’s aunt lend Jamie?",o:["She also lent Jamie her gloves.","She also lent Jamie her jacket.","She also lent Jamie her boots.","She also lent Jamie her camera."],e:"The dialogue says, “She also lent me her gloves.”｜阿姨也借了手套。"},
-{q:"Who gave Jamie the jacket?",o:["Jamie’s parents gave it as a birthday gift.","Jamie’s aunt gave it as a Christmas gift.","Jamie’s uncle gave it as a travel gift.","Jamie’s friend gave it as a school gift."],e:"Jamie’s parents gave the jacket for Jamie’s birthday.｜外套是父母送的生日禮物。"},
-{q:"Which question asks about the weather?",o:["How was the weather there?","How long did you stay there?","Who traveled there with you?","What food did you eat there?"],e:"“How was the weather there?” asks about past weather.｜這個問句用來詢問某地過去的天氣。"},
-{q:"Which sentence is correct?",o:["It snows a lot in the mountains.","It snow a lot in the mountains.","It snowing a lot in the mountains.","It is snow a lot in the mountains."],e:"With third-person singular “it,” use “snows.”｜主詞it為第三人稱單數，動詞加-s。"},
-{q:"Which sentence describes a past event?",o:["It rained a lot in Taipei last summer.","It rains a lot in Taipei every summer.","It is raining a lot in Taipei right now.","It may rain a lot in Taipei tomorrow."],e:"“Last summer” requires the past form “rained.”｜last summer表示過去，因此使用rained。"},
-{q:"Which sentence has the same meaning as “My uncle sent me a postcard”?",o:["My uncle sent a postcard to me.","My uncle sent a postcard with me.","My uncle sent a postcard from me.","My uncle sent a postcard about me."],e:"send + person + thing = send + thing + to + person.｜send的雙受詞句型用to改寫。"},
-{q:"Which sentence has the same meaning as “Kate bought Pat a jacket”?",o:["Kate bought a jacket for Pat.","Kate bought a jacket to Pat.","Kate bought a jacket from Pat.","Kate bought a jacket with Pat."],e:"buy + person + thing = buy + thing + for + person.｜buy的雙受詞句型用for改寫。"},
-{q:"Who wrote the postcard from Australia?",o:["Jamie wrote the postcard to Zac.","Zac wrote the postcard to Jamie.","Jamie’s aunt wrote it to Zac.","Zac’s uncle wrote it to Jamie."],e:"It begins “Dear Zac” and ends “Your friend, Jamie.”｜寄件人是Jamie，收件人是Zac。"},
-{q:"What did Jamie order at the coffee shop?",o:["Jamie ordered cookies and hot chocolate.","Jamie ordered cakes and orange juice.","Jamie ordered sandwiches and hot tea.","Jamie ordered hamburgers and cold milk."],e:"The postcard says Jamie ordered cookies and hot chocolate.｜Jamie點了餅乾和熱巧克力。"}
-],
-expert:[
-{q:"Why was Jamie mad when a man said “go die”?",o:["Jamie misunderstood the man’s Australian pronunciation.","Jamie did not want to speak to a stranger that day.","The man laughed at Jamie’s clothes on the street.","The man asked Jamie to leave Australia immediately."],e:"The man meant “good day,” but Jamie misunderstood the accent.｜Jamie誤解了澳洲口音。"},
-{q:"What does the “good day” story mainly show?",o:["The same English words may sound different in different places.","People in Australia usually speak angrily to foreign visitors.","English speakers never understand people from other countries.","Travelers should avoid speaking English on Australian streets."],e:"Regional accents can make familiar words sound different.｜不同地區的英語可能有不同發音。"},
-{q:"What are “bikkies and hot chokkie”?",o:["They are Australian words for cookies and hot chocolate.","They are Australian words for cakes and cold chocolate milk.","They are Indian words for cookies and a cup of hot tea.","They are American words for biscuits and chocolate cake."],e:"The clerk uses Australian expressions for Jamie’s order.｜這是cookies和hot chocolate的澳洲說法。"},
-{q:"Why did Jamie write “How strange!”?",o:["Australian expressions sounded unfamiliar to Jamie.","The coffee shop did not sell the food Jamie ordered.","The clerk brought Jamie the wrong food and drink.","Australian people refused to speak English with Jamie."],e:"The accent and local vocabulary were unfamiliar.｜Jamie對澳洲口音和當地詞彙感到陌生。"},
-{q:"Which statement is supported by both the dialogue and the postcard?",o:["Jamie experienced cold weather during the Australian trip.","Jamie stayed with an aunt during the entire Australian trip.","Jamie disliked every part of the trip to Australia.","Jamie bought a new snowboard at an Australian shop."],e:"Both texts mention cold weather in Australia.｜對話和明信片都提到澳洲天氣寒冷。"},
-{q:"Why did Jamie probably need a snowboard and gloves?",o:["Jamie experienced snowy weather and went snowboarding.","Jamie needed them to travel through a rainy city.","Jamie planned to give them to Zac as birthday gifts.","Jamie wanted to sell them after returning to Taiwan."],e:"Snow, a snowboard, and gloves suggest a snowboarding activity.｜可推論Jamie參加了滑雪活動。"},
-{q:"Which sentence correctly describes the picture?",o:["Jamie is showing Zac a picture of Jamie and an uncle.","Zac is showing Jamie a picture of Zac and an aunt.","Jamie is giving an uncle’s picture to Zac as a gift.","Zac is sending an uncle a picture taken in Australia."],e:"Jamie says, “Here’s a picture of me with my uncle.”｜Jamie給Zac看自己和叔叔的合照。"},
-{q:"Which sentence correctly changes “My parents gave me the jacket”?",o:["My parents gave the jacket to me.","My parents gave the jacket for me.","My parents gave the jacket from me.","My parents gave the jacket with me."],e:"give + person + thing = give + thing + to + person.｜give的雙受詞句型用to改寫。"},
-{q:"Complete: “Uncle Sam made me a kite.” = “Uncle Sam made ____.”",o:["a kite for me","a kite to me","a kite from me","a kite with me"],e:"The verb “make” takes “for” in this pattern.｜make的雙受詞句型用for改寫。"},
-{q:"Which pair follows the same grammar pattern?",o:["send a card to me / show a picture to me","buy a jacket to me / make a kite to me","write a letter for me / give a gift for me","show a card for me / send a picture for me"],e:"Both “send” and “show” use “to” in this transformation.｜send與show都搭配to。"},
-{q:"Which sentence is grammatically correct?",o:["It rains a lot in New Delhi in summer.","It rain a lot in New Delhi in summer.","It raining a lot in New Delhi in summer.","It is rains a lot in New Delhi in summer."],e:"Use the simple present “rains” for a general climate fact.｜描述一般氣候，用現在簡單式rains。"},
-{q:"Which sentence best describes Hokkaido in winter?",o:["It snows a lot in Hokkaido in winter.","It snowed a lot in Hokkaido every winter.","There are much snow in Hokkaido in winter.","There have snow a lot in Hokkaido in winter."],e:"A general winter climate takes the simple present “snows.”｜描述冬季常態，用現在簡單式snows。"},
-{q:"What is the main purpose of Jamie’s postcard?",o:["To share unusual experiences from a trip to Australia","To teach Zac how to cook Australian food at home","To complain about an Australian coffee shop employee","To invite Zac to move to Australia with Jamie’s family"],e:"Jamie shares experiences with accents, expressions, and weather.｜明信片分享澳洲旅行中的語言與天氣經驗。"},
-{q:"Which sentence is the closing of the postcard?",o:["Your friend,","Dear Zac,","Zac Hugo","Taiwan (ROC)"],e:"“Your friend,” closes the message; “Jamie” is the signature.｜Your friend是結束正文的用語。"},
-{q:"Which part contains the receiver’s location?",o:["No. 30, Yuren Rd., Taipei 11249, Taiwan","How are you doing? My family and I are in Australia.","Anyway, see you at school soon. Your friend, Jamie","I ordered cookies and hot chocolate because it was cold."],e:"The street, city, postal code, and country form the address.｜街道、城市、郵遞區號與國家構成地址。"},
-{q:"Which summary best matches the postcard?",o:["Jamie describes how Australian English and cold weather made the trip interesting.","Jamie explains why the family decided to leave Australia earlier than planned.","Jamie teaches Zac how to write an address and mail an Australian postcard.","Jamie reports that Australian food and weather made the entire trip unpleasant."],e:"The postcard focuses on Australian English and cold-weather experiences.｜文章重點是澳洲英語與寒冷天氣下的旅行體驗。"}
-]};
-const SCENES=["📮 A postcard has arrived from Australia. Read carefully to unlock the first clue!","🌦️ The weather map is changing. Choose the sentence that fits the clue.","🦘 A kangaroo guards the path. Solve the dialogue question to move forward.","☕ An Australian café menu hides the next password fragment.","🏂 Snow covers the mountain. Use the travel details to find the answer.","✉️ The postcard pieces are mixed up. Identify the correct language clue.","🧭 Your grammar compass points to two paths. Choose the correct pattern.","🌏 Compare the clues from India, Taiwan, and Australia.","🔐 Only careful readers can open this language lock.","🏁 One final English challenge stands between you and the certificate!"];
-const state={level:null,count:null,questions:[],index:0,firstCorrect:0,answered:false,sound:true};
-const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
-function beep(ok=true){if(!state.sound)return;try{const c=new (window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=ok?660:220;g.gain.setValueAtTime(.08,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.22);o.start();o.stop(c.currentTime+.22)}catch(e){}}
-function shuffle(a){a=[...a];for(let i=a.length-1;i;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-$$('.choice').forEach(b=>b.onclick=()=>{state[b.dataset.kind]=b.dataset.value;b.parentElement.querySelectorAll('.choice').forEach(x=>x.classList.remove('on'));b.classList.add('on');$('#start').disabled=!(state.level&&state.count)});
-$('#sound').onclick=()=>{state.sound=!state.sound;$('#sound').textContent=state.sound?'🔊':'🔇';beep()};
-function show(id){$$('.screen').forEach(x=>x.classList.add('hidden'));$(id).classList.remove('hidden');window.scrollTo(0,0)}
-$('#start').onclick=()=>{state.questions=shuffle(QDB[state.level]).slice(0,+state.count);state.index=0;state.firstCorrect=0;buildFrags();render();show('#game');beep()};
-function buildFrags(){const word=+state.count===5?'GREAT':'ADVENTURE!';$('#frags').innerHTML=[...word].slice(0,+state.count).map((x,i)=>`<span class="frag" id="f${i}" data-letter="${x}">?</span>`).join('')}
-function render(){state.answered=false;const q=state.questions[state.index];$('#mission').textContent=`Mission ${state.index+1}`;$('#counter').textContent=`${state.index+1} / ${state.count}`;$('#bar').style.width=`${state.index/state.count*100}%`;$('#scene').textContent=SCENES[state.index];$('#question').textContent=q.q;$('#feedback').classList.add('hidden');$('#next').classList.add('hidden');const mixed=shuffle(q.o.map((t,i)=>({t,correct:i===0})));$('#answers').innerHTML=mixed.map((x,i)=>`<button class="answer" data-ok="${x.correct}"><span class="badge">${'ABCD'[i]}</span>${x.t}</button>`).join('');$$('.answer').forEach(b=>b.onclick=()=>answer(b,q))}
-function answer(btn,q){if(state.answered)return;state.answered=true;$$('.answer').forEach(b=>{b.disabled=true;if(b.dataset.ok==='true')b.classList.add('correct')});const ok=btn.dataset.ok==='true';if(ok){state.firstCorrect++;btn.classList.add('correct');$('#fbTitle').textContent='✅ Correct! 密碼碎片已解鎖';$('#feedback').className='feedback ok';const f=$(`#f${state.index}`);f.textContent=f.dataset.letter;f.classList.add('lit')}else{btn.classList.add('wrong');$('#fbTitle').textContent='💡 Keep learning! 一起查看解析';$('#feedback').className='feedback no'}$('#fbText').textContent=q.e;$('#next').classList.remove('hidden');beep(ok)}
-$('#next').onclick=()=>{state.index++;if(state.index>=+state.count){$('#bar').style.width='100%';show('#name');beep()}else render()};
-$('#makeCert').onclick=()=>{const name=$('#student').value.trim()||'English Explorer';$('#certName').textContent=name;$('#certPhrase').textContent=+state.count===5?'GREAT!':'ADVENTURE!';$('#certScore').textContent=`一次答對 ${state.firstCorrect} / ${state.count} 題 · ${Math.round(state.firstCorrect/state.count*100)}%`;$('#certDate').textContent=new Date().toLocaleDateString('zh-TW');show('#victory');beep()};
-$('#student').onkeydown=e=>{if(e.key==='Enter')$('#makeCert').click()};
-function resetGame(){
-  state.level=null;state.count=null;state.questions=[];state.index=0;state.firstCorrect=0;state.answered=false;
-  $$('.choice').forEach(b=>b.classList.remove('on'));
-  $('#start').disabled=true;$('#student').value='';$('#answers').innerHTML='';$('#frags').innerHTML='';
-  $('#feedback').className='feedback hidden';$('#next').classList.add('hidden');$('#bar').style.width='0%';
-  show('#home');beep();
-}
-$('#again').onclick=resetGame;
-</script>
 </body>
 </html>
